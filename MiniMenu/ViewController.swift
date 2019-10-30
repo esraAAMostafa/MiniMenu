@@ -12,5 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let x: NetworkManagerProtocol = NetworkManager()
+        x.callAPI(Tags(), endPoint: TagsEndPoint(page: 1), completionHandler: { (response) in
+            print(response)
+        }) { (error) in
+            print(error.message)
+        }
     }
 }
