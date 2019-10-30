@@ -9,10 +9,10 @@
 import Foundation
 
 class ItemsEndPoint: EndPoint {
-    var url: URL
-    var method: String = "get"
+    var url: String
+    var method: HttpRequestMethod = .get
     
     init(tagName: String) {
-        url = URL(string: baseURl + "/items/\(tagName)")!
+        url = baseURl + "/items/\(tagName)"
     }
 }

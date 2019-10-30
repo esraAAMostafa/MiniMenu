@@ -11,6 +11,10 @@ import Foundation
 let baseURl = "https://elmenus-assignment.getsandbox.com"
 
 protocol EndPoint {
-    var url: URL {get set}
-    var method: String {get set}
+    var url: String {get set}
+    var method: HttpRequestMethod {get set}
+}
+
+enum HttpRequestMethod: String {
+    case get
 }

@@ -16,9 +16,16 @@ protocol NetworkManagerProtocol {
 class NetworkManager: NetworkManagerProtocol {
     func callAPI<T: Codable>(_ output: T, endPoint: EndPoint, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void) {
 
-        let method = HTTPMethod(rawValue: endPoint.method)
+        
+        guard let urlString = endPoint.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlString) else {
+            failHandler(LocalError(message: "wrong url"))
+            return
+        }
 
-        Alamofire.request(endPoint.url, method: method ?? .get).validate().responseData { (response) in
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = endPoint.method.rawValue
+
+        Alamofire.request(urlRequest).validate().responseData { (response) in
             switch response.result {
             case .success(let data):
                 if (200 ... 299).contains(response.response!.statusCode) {

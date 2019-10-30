@@ -9,11 +9,10 @@
 import Foundation
 
 class TagsEndPoint: EndPoint {
-    var url: URL
-    var method: String = "get"
+    var url: String
+    var method: HttpRequestMethod = .get
     
     init(page: Int) {
-        url = URL(string: baseURl + "/tags/\(page)")!
-        
+        url = baseURl + "/tags/\(page)"
     }
 }

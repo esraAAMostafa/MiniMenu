@@ -11,6 +11,10 @@ import Foundation
 class Items: Codable {
     let items: [Item]
 
+    init() {
+        self.items = [Item()]
+    }
+
     init(items: [Item]) {
         self.items = items
     }
@@ -28,6 +32,13 @@ class Item: Codable {
         case itemDescription = "description"
     }
 
+    init() {
+        self.id = 0
+        self.name = ""
+        self.photoURL = ""
+        self.itemDescription = ""
+    }
+    
     init(id: Int, name: String, photoURL: String, itemDescription: String) {
         self.id = id
         self.name = name
