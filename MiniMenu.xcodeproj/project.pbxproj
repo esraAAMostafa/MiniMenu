@@ -13,6 +13,8 @@
 		020D852E236A0F1B00094864 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 020D852C236A0F1B00094864 /* Main.storyboard */; };
 		020D8530236A0F1D00094864 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 020D852F236A0F1D00094864 /* Assets.xcassets */; };
 		020D8533236A0F1D00094864 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 020D8531236A0F1D00094864 /* LaunchScreen.storyboard */; };
+		020D855B236A128900094864 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855A236A128900094864 /* Tags.swift */; };
+		020D855D236A12E200094864 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855C236A12E200094864 /* Items.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		020D852F236A0F1D00094864 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		020D8532236A0F1D00094864 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		020D8534236A0F1D00094864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		020D855A236A128900094864 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		020D855C236A12E200094864 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				020D8526236A0F1B00094864 /* AppDelegate.swift */,
+				020D855E236A132200094864 /* Models */,
 				020D8528236A0F1B00094864 /* SceneDelegate.swift */,
 				020D852A236A0F1B00094864 /* ViewController.swift */,
 				020D852C236A0F1B00094864 /* Main.storyboard */,
@@ -65,6 +70,15 @@
 				020D8534236A0F1D00094864 /* Info.plist */,
 			);
 			path = MiniMenu;
+			sourceTree = "<group>";
+		};
+		020D855E236A132200094864 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				020D855A236A128900094864 /* Tags.swift */,
+				020D855C236A12E200094864 /* Items.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +152,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020D855B236A128900094864 /* Tags.swift in Sources */,
+				020D855D236A12E200094864 /* Items.swift in Sources */,
 				020D852B236A0F1B00094864 /* ViewController.swift in Sources */,
 				020D8527236A0F1B00094864 /* AppDelegate.swift in Sources */,
 				020D8529236A0F1B00094864 /* SceneDelegate.swift in Sources */,
@@ -216,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,6 +303,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J7S5F5P6TC;
 				INFOPLIST_FILE = MiniMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +311,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.MiniMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +322,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = J7S5F5P6TC;
 				INFOPLIST_FILE = MiniMenu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.task.MiniMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
