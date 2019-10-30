@@ -19,7 +19,7 @@ class NetworkManagerImpl: NetworkManager {
 
         
         guard let urlString = endPoint.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlString) else {
-            failHandler(LocalError(message: "wrong url"))
+            print("wrong request url")
             return
         }
 
@@ -31,13 +31,13 @@ class NetworkManagerImpl: NetworkManager {
             case .success(let data):
                 if (200 ... 299).contains(response.response!.statusCode) {
                     guard let response = try? JSONDecoder().decode(T.self, from: data) else {
-                        failHandler(LocalError(message: "Mapping Failed"))
+                        print("fail to map object response")
                         return
                     }
                     completionHandler(response)
                 } else {
                     guard let error = try? JSONDecoder().decode(APIError.self, from: response.data!) else {
-                        failHandler(LocalError(message: "fail to map error response"))
+                        print("fail to map error response")
                         return
                     }
                     failHandler(error.errors[0])
