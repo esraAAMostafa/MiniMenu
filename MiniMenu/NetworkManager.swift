@@ -9,12 +9,13 @@
 import Foundation
 import Alamofire
 
-protocol NetworkManagerProtocol {
-    func callAPI<T: Codable>(_ output: T, endPoint: EndPoint, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void)
+protocol NetworkManager {
+    func call<T: Codable>(endPoint: EndPoint, for output: T, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void)
 }
 
-class NetworkManager: NetworkManagerProtocol {
-    func callAPI<T: Codable>(_ output: T, endPoint: EndPoint, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void) {
+class NetworkManagerImpl: NetworkManager {
+    
+    func call<T: Codable>(endPoint: EndPoint, for output: T, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void) {
 
         
         guard let urlString = endPoint.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlString) else {
