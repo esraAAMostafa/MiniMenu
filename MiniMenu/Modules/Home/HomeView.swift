@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeView.swift
 //  MiniMenu
 //
 //  Created by Esraa on 10/30/19.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol HomeProtocol {
+protocol HomeViewProtocol {
     func select(tag: Tag)
     func showAlert(with error: String)
 }
 
-class MainView: UIViewController {
+class HomeView: UIViewController {
     
     var selectedTagName: String = ""
     
@@ -39,7 +39,7 @@ class MainView: UIViewController {
     }
 }
 
-extension MainView: HomeProtocol {
+extension HomeView: HomeViewProtocol {
     func select(tag: Tag) {
         itemsDelegate.setSelectedTage(name: tag.name)
     }

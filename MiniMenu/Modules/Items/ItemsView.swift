@@ -18,7 +18,7 @@ class ItemsView: UITableViewController {
 
     private let reuseIdentifier = "ItemCell"
 
-    var delegate: HomeProtocol!
+    var delegate: HomeViewProtocol!
     var interactor: ItemsInteractor!
 
     var items: ItemsList = []

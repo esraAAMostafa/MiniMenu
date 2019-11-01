@@ -17,7 +17,7 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private let reuseIdentifier = "TagCell"
 
-    var delegate: HomeProtocol!
+    var delegate: HomeViewProtocol!
     var interactor: TagsInteractor!
     
     var page = 0
