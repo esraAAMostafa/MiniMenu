@@ -21,21 +21,7 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     var tags: TagsList = []
     
     var page = 0
-    
-    lazy var myRefreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
-        refreshControl.tintColor = UIColor.red
-        return refreshControl
-    }()
-    
-    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        page = 0
-        tags = []
-        collectionView.reloadData()
-        getMoreTags()
-        refreshControl.endRefreshing()
-    }
+    var delegate: HomeProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,27 +29,24 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
         
         getMoreTags()
         self.clearsSelectionOnViewWillAppear = false
-        self.collectionView.addSubview(self.myRefreshControl)
-        self.collectionView!.register(TagCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
     
     private func getMoreTags() {
         self.page += 1
         interactor.getTags(in: page)
     }
-
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-      return 1
-    }
     
+    private func needMorePages(_ index: Int) -> Bool {
+        return index > (tags.count - 5)
+    }
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tags.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if indexPath.row > ((page * 10) - 5) {
-            getMoreTags()
-        }
+
+        if needMorePages(indexPath.row) { getMoreTags() }
 
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? TagCell {
             cell.config(tag: tags[indexPath.row])
@@ -73,17 +56,17 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width / 3, height: 100)
+        return CGSize(width: self.view.frame.width / 3, height: self.view.frame.height)
     }
 }
 
 extension TagsView: TagsViewDelegate {
     func updateCollectionView(with tags: TagsList) {
-        self.tags = tags
+        self.tags.append(contentsOf: tags)
         collectionView.reloadData()
     }
     
     func showAlert(with message: String) {
-        
+        delegate.showAlert(with: message)
     }
 }

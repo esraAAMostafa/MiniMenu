@@ -15,6 +15,6 @@ class TagCell: UICollectionViewCell {
     
     func config(tag: Tag) {
         nameLabel.text = tag.tagName
-//        image.image = tag.photoURL
+        image.setImage(imageUrl: tag.photoURL)
     }
 }

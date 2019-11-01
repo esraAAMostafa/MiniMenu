@@ -8,21 +8,28 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+protocol HomeProtocol {
+    func showAlert(with error: String)
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let x: MenuRepo = MenuRepoImpl()
-        x.getTags(of: 1, completionHandler: { (tags) in
-            x.getItems(for: tags[0].tagName, completionHandler: { (items) in
-                print(items[0].name)
-            }) { (error) in
-                print(error)
-            }
-        }) { (error) in
-            print(error)
-        }
+class ViewController: UIViewController {
     
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToTagsView" {
+            if let embedView = segue.description as? TagsView {
+                embedView.delegate = self
+            }
+        }
+    }
+}
+
+extension ViewController: HomeProtocol {
+    
+    func showAlert(with error: String) {
+        alert(title: "", message: error, actions: [("ok", .default)])
     }
 }
