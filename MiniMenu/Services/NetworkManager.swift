@@ -10,24 +10,12 @@ import Foundation
 import Alamofire
 
 protocol NetworkManager {
-    func call<T: Codable>(endPoint: EndPoint, for output: T.Type, completionHandler: @escaping (T) -> Void, failHandler: @escaping (String) -> Void)
+    func call<T: Codable>(endPoint: EndPoint, for output: T.Type, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void)
 }
 
 class NetworkManagerImpl: NetworkManager {
 
-    func call<T: Codable>(endPoint: EndPoint, for output:  T.Type, completionHandler: @escaping (T) -> Void, failHandler: @escaping (String) -> Void) {
-        self.call(endPoint: endPoint, completionHandler: { (response) in
-            guard let response = try? JSONDecoder().decode(T.self, from: response) else {
-                print("fail to map object response")
-                return
-            }
-            completionHandler(response)
-        }) { (error) in
-            failHandler(error.message)
-        }
-    }
-    
-    func call(endPoint: EndPoint, completionHandler: @escaping (Data) -> Void, failHandler: @escaping (LocalError) -> Void) {
+    func call<T: Codable>(endPoint: EndPoint, for output:  T.Type, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void) {
         
         guard let urlString = endPoint.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlString) else {
             print("wrong request url")
@@ -41,7 +29,11 @@ class NetworkManagerImpl: NetworkManager {
             switch response.result {
             case .success(let data):
                 if (200 ... 299).contains(response.response!.statusCode) {
-                    completionHandler(data)
+                    guard let response = try? JSONDecoder().decode(T.self, from: data) else {
+                        print("fail to map object response")
+                        return
+                    }
+                    completionHandler(response)
                 } else {
                     guard let error = try? JSONDecoder().decode(APIError.self, from: response.data!) else {
                         print("fail to map error response")

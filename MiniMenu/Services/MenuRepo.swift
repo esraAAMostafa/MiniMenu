@@ -26,7 +26,7 @@ class MenuRepoImpl: MenuRepo {
         networkManager.call(endPoint: TagsEndPoint(page: page), for: TagsResponse.self, completionHandler: { (response) in
             completionHandler(response.mapToTags())
         }) { (error) in
-            failHandler(error)
+            failHandler(error.message)
         }
     }
     
@@ -35,7 +35,7 @@ class MenuRepoImpl: MenuRepo {
         networkManager.call(endPoint: ItemsEndPoint(tagName: tagName), for: ItemsResponse.self, completionHandler: { (response) in
             completionHandler(response.mapToItems())
         }) { (error) in
-            failHandler(error)
+            failHandler(error.message)
         }
     }
 }
