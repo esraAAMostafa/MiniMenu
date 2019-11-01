@@ -37,15 +37,4 @@ class DatabaseManager {
         let results = database!.objects(type)
         return results
     }
-
-//    func append(task: Object, to tasks: List<TagsResponse>) {
-//        do {
-//            try database?.write {
-//                tasks.append(task as! Task)
-//                database?.add(tasks, update: true)
-//            }
-//        } catch {
-//            print("Fail to append task")
-//        }
-//    }
 }

@@ -14,6 +14,13 @@ struct TagsResponse: Codable {
     init() {
         self.tags = [TagResponse()]
     }
+    
+    func mapToTags() -> TagsList {
+        var tags: TagsList = []
+        self.tags.forEach {
+            tags.append(Tag(tagName: $0.tagName, photoURL: $0.photoURL)) }
+        return tags
+    }
 }
 
 struct TagResponse: Codable {

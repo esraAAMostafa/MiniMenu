@@ -14,6 +14,14 @@ struct ItemsResponse: Codable {
     init() {
         self.items = [ItemResponse()]
     }
+    
+    func mapToItems() -> ItemsList {
+        var items: ItemsList = []
+        self.items.forEach {
+            items.append(Item(id: $0.id, name: $0.name, photoURL: $0.photoURL,
+                              itemDescription: $0.itemDescription)) }
+        return items
+    }
 }
 
 struct ItemResponse: Codable {

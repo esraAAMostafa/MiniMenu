@@ -22,18 +22,20 @@ class MenuRepoImpl: MenuRepo {
     }
     
     func getTags(of page: Int, completionHandler: @escaping (TagsList) -> Void, failHandler: @escaping (String) -> Void) {
-        networkManager.call(endPoint: TagsEndPoint(page: page), for: TagsResponse, completionHandler: { (response) in
-            completionHandler(response.tags)
+
+        networkManager.call(endPoint: TagsEndPoint(page: page), for: TagsResponse.self, completionHandler: { (response) in
+            completionHandler(response.mapToTags())
         }) { (error) in
-            failHandler(error.message)
+            failHandler(error)
         }
     }
     
     func getItems(for tagName: String, completionHandler: @escaping (ItemsList) -> Void, failHandler: @escaping (String) -> Void) {
-        networkManager.call(endPoint: ItemsEndPoint(tagName: tagName), for: ItemsResponse, completionHandler: { (response) in
-            completionHandler(response.items)
+
+        networkManager.call(endPoint: ItemsEndPoint(tagName: tagName), for: ItemsResponse.self, completionHandler: { (response) in
+            completionHandler(response.mapToItems())
         }) { (error) in
-            failHandler(error.message)
+            failHandler(error)
         }
     }
 }

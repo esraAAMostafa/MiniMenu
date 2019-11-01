@@ -91,11 +91,7 @@
 			children = (
 				020D8526236A0F1B00094864 /* AppDelegate.swift */,
 				020D8528236A0F1B00094864 /* SceneDelegate.swift */,
-				020D855E236A132200094864 /* Models */,
-				029E390C236A3F2D004DF7B2 /* EndPoints */,
-				020D855F236A137200094864 /* NetworkManager.swift */,
-				02184FE5236ACEEB000230BB /* DataBaseManager.swift */,
-				029E390D236A4DB9004DF7B2 /* MenuRepo.swift */,
+				0297FE71236C4543007C11B4 /* Services */,
 				020D852A236A0F1B00094864 /* ViewController.swift */,
 				020D852C236A0F1B00094864 /* Main.storyboard */,
 				020D852F236A0F1D00094864 /* Assets.xcassets */,
@@ -114,6 +110,18 @@
 				02E6ED84236C24CA00B41D85 /* BusinessModels */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0297FE71236C4543007C11B4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				020D855E236A132200094864 /* Models */,
+				029E390C236A3F2D004DF7B2 /* EndPoints */,
+				020D855F236A137200094864 /* NetworkManager.swift */,
+				02184FE5236ACEEB000230BB /* DataBaseManager.swift */,
+				029E390D236A4DB9004DF7B2 /* MenuRepo.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		029E390C236A3F2D004DF7B2 /* EndPoints */ = {
