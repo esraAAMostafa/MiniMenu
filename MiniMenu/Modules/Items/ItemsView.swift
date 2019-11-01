@@ -9,6 +9,7 @@
 import UIKit
 
 protocol ItemsViewDelegate {
+    func setSelectedTage(name: String)
     func updateItemsView(with items: ItemsList)
     func showAlert(with message: String)
 }
@@ -21,12 +22,25 @@ class ItemsView: UITableViewController {
     var interactor: ItemsInteractor!
 
     var items: ItemsList = []
+    
+    var tagName: String!
+
+    lazy var myRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
+
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        interactor.getItems(with: tagName)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         self.clearsSelectionOnViewWillAppear = false
+        self.tableView.addSubview(self.myRefreshControl)
+        self.interactor = ItemsInteractor(presnter: ItemsPresenter(itemsView: self))
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -40,18 +54,26 @@ class ItemsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height / 5
+        return self.view.frame.height / 4.5
     }
 }
 
 extension ItemsView: ItemsViewDelegate {
+    
+    func setSelectedTage(name: String) {
+        self.tagName = name
+        myRefreshControl.beginScrollRefreshing(in: self.tableView)
+        interactor.getItems(with: tagName)
+    }
+
     func updateItemsView(with items: ItemsList) {
-        self.items.append(contentsOf: items)
+        self.items = items
         tableView.reloadData()
+        myRefreshControl.endRefreshing()
     }
     
     func showAlert(with message: String) {
         delegate.showAlert(with: message)
+        myRefreshControl.endRefreshing()
     }
 }
-

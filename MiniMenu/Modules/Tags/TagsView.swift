@@ -26,9 +26,8 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.interactor = TagsInteractor(presnter: TagsPresenter(tagsView: self))
-        
+
         getMoreTags()
-        self.clearsSelectionOnViewWillAppear = false
     }
     
     private func getMoreTags() {
@@ -57,6 +56,10 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.frame.width / 3, height: self.view.frame.height)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate.select(tag: tags[indexPath.row])
     }
 }
 

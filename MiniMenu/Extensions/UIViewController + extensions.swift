@@ -19,3 +19,11 @@ extension UIViewController {
         self.present(alerting, animated: true, completion: nil)
     }
 }
+
+extension UIRefreshControl {
+    func beginScrollRefreshing(in tableView: UITableView) {
+        beginRefreshing()
+        let offsetPoint = CGPoint.init(x: 0, y: -frame.size.height)
+        tableView.setContentOffset(offsetPoint, animated: true)
+    }
+}

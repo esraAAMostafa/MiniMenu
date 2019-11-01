@@ -11,7 +11,7 @@
         <scene sceneID="cSw-bO-2px">
             <objects>
                 <tableViewController storyboardIdentifier="ItemsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ge4-Vg-vwt" customClass="ItemsView" customModule="MiniMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iCZ-Ha-4UM">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iCZ-Ha-4UM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -24,14 +24,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-ds-aPA">
-                                            <rect key="frame" x="20" y="45" width="100" height="100"/>
+                                            <rect key="frame" x="20" y="19" width="152" height="152"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="HCm-mP-fy9"/>
                                                 <constraint firstAttribute="width" secondItem="Dgr-ds-aPA" secondAttribute="height" id="kdw-xz-fwD"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-TO-gRf">
-                                            <rect key="frame" x="140" y="80" width="254" height="30"/>
+                                            <rect key="frame" x="192" y="83.5" width="202" height="23.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -40,9 +40,9 @@
                                     <constraints>
                                         <constraint firstItem="vdt-TO-gRf" firstAttribute="centerY" secondItem="Dgr-ds-aPA" secondAttribute="centerY" id="51E-Da-Ge4"/>
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="centerY" secondItem="42N-7b-d3h" secondAttribute="centerY" id="67F-yc-Stc"/>
+                                        <constraint firstItem="Dgr-ds-aPA" firstAttribute="height" secondItem="42N-7b-d3h" secondAttribute="height" multiplier="0.8" id="AsV-00-asw"/>
                                         <constraint firstItem="vdt-TO-gRf" firstAttribute="leading" secondItem="Dgr-ds-aPA" secondAttribute="trailing" constant="20" id="EZH-ZC-chO"/>
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="leading" secondItem="42N-7b-d3h" secondAttribute="leading" constant="20" id="Y6x-Yc-LUz"/>
-                                        <constraint firstItem="vdt-TO-gRf" firstAttribute="height" secondItem="Dgr-ds-aPA" secondAttribute="height" multiplier="0.3" id="jqX-HP-2Yl"/>
                                         <constraint firstAttribute="trailing" secondItem="vdt-TO-gRf" secondAttribute="trailing" constant="20" id="ldH-bC-6rh"/>
                                     </constraints>
                                 </tableViewCellContentView>

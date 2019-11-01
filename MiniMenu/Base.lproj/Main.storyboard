@@ -25,12 +25,22 @@
                                     <segue destination="gBp-Mi-hTW" kind="embed" identifier="ToTagsView" id="QE9-HF-VzW"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9E-lN-YEw">
+                                <rect key="frame" x="0.0" y="244" width="414" height="652"/>
+                                <connections>
+                                    <segue destination="pSr-Dt-2Md" kind="embed" identifier="ToItemsView" id="dOo-iS-m0u"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wbX-rO-eUD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3f9-Os-hFc"/>
+                            <constraint firstItem="e9E-lN-YEw" firstAttribute="top" secondItem="wbX-rO-eUD" secondAttribute="bottom" id="NYe-T9-edo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wbX-rO-eUD" secondAttribute="trailing" id="QVu-QE-g7a"/>
+                            <constraint firstAttribute="bottom" secondItem="e9E-lN-YEw" secondAttribute="bottom" id="UUA-t9-f7N"/>
                             <constraint firstItem="wbX-rO-eUD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UaT-hh-mx5"/>
+                            <constraint firstItem="e9E-lN-YEw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dwg-3J-0gP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e9E-lN-YEw" secondAttribute="trailing" id="uQo-kH-Kia"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -45,7 +55,15 @@
                 <viewControllerPlaceholder storyboardName="Tags" referencedIdentifier="TagsView" id="gBp-Mi-hTW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abb-Kb-mTZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="751" y="-66"/>
+            <point key="canvasLocation" x="675" y="-113"/>
+        </scene>
+        <!--ItemsView-->
+        <scene sceneID="i35-Gf-XDv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Items" referencedIdentifier="ItemsView" id="pSr-Dt-2Md" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nkL-Oj-hIo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="679" y="303"/>
         </scene>
     </scenes>
 </document>
