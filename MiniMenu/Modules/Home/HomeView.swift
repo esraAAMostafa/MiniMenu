@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomeViewProtocol {
     func select(tag: Tag)
+//    func select(item: Item)
     func showAlert(with error: String)
 }
 
@@ -40,6 +41,7 @@ class HomeView: UIViewController {
 }
 
 extension HomeView: HomeViewProtocol {
+
     func select(tag: Tag) {
         itemsDelegate.setSelectedTage(name: tag.name)
     }

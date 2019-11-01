@@ -20,6 +20,7 @@ class ItemsView: UITableViewController {
 
     var delegate: HomeViewProtocol!
     var interactor: ItemsInteractor!
+    var itemDetailsDelegate: ItemDetailsViewDelegate!
 
     var items: ItemsList = []
     
@@ -55,6 +56,19 @@ class ItemsView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.view.frame.height / 4.5
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "ToItemDetails", sender: self)
+        itemDetailsDelegate.initItemDetails(items[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToItemDetails" {
+            if let nextVC = segue.destination as? ItemDetailsView {
+                itemDetailsDelegate = nextVC
+            }
+        }
     }
 }
 

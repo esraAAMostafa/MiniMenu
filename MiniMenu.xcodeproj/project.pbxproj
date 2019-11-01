@@ -16,6 +16,8 @@
 		020D855B236A128900094864 /* TagsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855A236A128900094864 /* TagsResponse.swift */; };
 		020D855D236A12E200094864 /* ItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855C236A12E200094864 /* ItemsResponse.swift */; };
 		020D8560236A137200094864 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855F236A137200094864 /* NetworkManager.swift */; };
+		02177846236CDBC30021CFC7 /* ItemDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02177845236CDBC30021CFC7 /* ItemDetails.storyboard */; };
+		02177848236CDBDF0021CFC7 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02177847236CDBDF0021CFC7 /* ItemDetailsView.swift */; };
 		02184FE6236ACEEB000230BB /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02184FE5236ACEEB000230BB /* DataBaseManager.swift */; };
 		02184FE8236ADD4D000230BB /* StoredTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02184FE7236ADD4D000230BB /* StoredTags.swift */; };
 		02563B6E236C782200CE1E84 /* UIImage + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02563B6D236C782200CE1E84 /* UIImage + extensions.swift */; };
@@ -54,6 +56,8 @@
 		020D855A236A128900094864 /* TagsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsResponse.swift; sourceTree = "<group>"; };
 		020D855C236A12E200094864 /* ItemsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsResponse.swift; sourceTree = "<group>"; };
 		020D855F236A137200094864 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		02177845236CDBC30021CFC7 /* ItemDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemDetails.storyboard; sourceTree = "<group>"; };
+		02177847236CDBDF0021CFC7 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		02184FE5236ACEEB000230BB /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		02184FE7236ADD4D000230BB /* StoredTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredTags.swift; sourceTree = "<group>"; };
 		02563B6D236C782200CE1E84 /* UIImage + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + extensions.swift"; sourceTree = "<group>"; };
@@ -138,6 +142,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		02177844236CDBA50021CFC7 /* ItemDetails */ = {
+			isa = PBXGroup;
+			children = (
+				02177845236CDBC30021CFC7 /* ItemDetails.storyboard */,
+				02177847236CDBDF0021CFC7 /* ItemDetailsView.swift */,
+			);
+			path = ItemDetails;
+			sourceTree = "<group>";
+		};
 		02563B6F236C783900CE1E84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +201,7 @@
 				02D587FD236CD7EF00045289 /* Home */,
 				02EC833D236C510300902017 /* Tags */,
 				02D587F1236CB50200045289 /* Items */,
+				02177844236CDBA50021CFC7 /* ItemDetails */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -317,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02177846236CDBC30021CFC7 /* ItemDetails.storyboard in Resources */,
 				020D8533236A0F1D00094864 /* LaunchScreen.storyboard in Resources */,
 				02D587FC236CB60C00045289 /* Tags.storyboard in Resources */,
 				02D587FA236CB5CD00045289 /* Items.storyboard in Resources */,
@@ -374,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02177848236CDBDF0021CFC7 /* ItemDetailsView.swift in Sources */,
 				020D8560236A137200094864 /* NetworkManager.swift in Sources */,
 				02E6ED81236C24B400B41D85 /* Items.swift in Sources */,
 				02184FE8236ADD4D000230BB /* StoredTags.swift in Sources */,

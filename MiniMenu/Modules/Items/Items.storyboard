@@ -31,7 +31,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-TO-gRf">
-                                            <rect key="frame" x="192" y="83.5" width="202" height="23.5"/>
+                                            <rect key="frame" x="182" y="72" width="222" height="46"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -41,9 +41,10 @@
                                         <constraint firstItem="vdt-TO-gRf" firstAttribute="centerY" secondItem="Dgr-ds-aPA" secondAttribute="centerY" id="51E-Da-Ge4"/>
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="centerY" secondItem="42N-7b-d3h" secondAttribute="centerY" id="67F-yc-Stc"/>
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="height" secondItem="42N-7b-d3h" secondAttribute="height" multiplier="0.8" id="AsV-00-asw"/>
-                                        <constraint firstItem="vdt-TO-gRf" firstAttribute="leading" secondItem="Dgr-ds-aPA" secondAttribute="trailing" constant="20" id="EZH-ZC-chO"/>
+                                        <constraint firstItem="vdt-TO-gRf" firstAttribute="leading" secondItem="Dgr-ds-aPA" secondAttribute="trailing" constant="10" id="EZH-ZC-chO"/>
+                                        <constraint firstItem="vdt-TO-gRf" firstAttribute="height" secondItem="Dgr-ds-aPA" secondAttribute="height" multiplier="0.3" id="FFA-7H-YgJ"/>
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="leading" secondItem="42N-7b-d3h" secondAttribute="leading" constant="20" id="Y6x-Yc-LUz"/>
-                                        <constraint firstAttribute="trailing" secondItem="vdt-TO-gRf" secondAttribute="trailing" constant="20" id="ldH-bC-6rh"/>
+                                        <constraint firstAttribute="trailing" secondItem="vdt-TO-gRf" secondAttribute="trailing" constant="10" id="ldH-bC-6rh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -57,10 +58,23 @@
                             <outlet property="delegate" destination="ge4-Vg-vwt" id="TI5-5R-5Yn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="3RQ-ws-oH4" kind="presentation" identifier="ToItemDetails" modalPresentationStyle="fullScreen" id="Ri6-VG-ZvP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3J8-ra-W9h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="989.85507246376824" y="410.49107142857139"/>
+        </scene>
+        <!--ItemDetailsView-->
+        <scene sceneID="Oot-bl-UxV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ItemDetails" referencedIdentifier="ItemDetailsView" id="3RQ-ws-oH4" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="tpW-50-h1b"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H7v-Jn-A62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="410"/>
         </scene>
     </scenes>
 </document>
