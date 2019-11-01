@@ -8,29 +8,20 @@
 
 import Foundation
 
-class Tags: Codable {
-    let tags: [Tag]
-
+struct TagsResponse: Codable {
+    let tags: [TagResponse]
+    
     init() {
-        self.tags = [Tag()]
-    }
-
-    init(tags: [Tag]) {
-        self.tags = tags
+        self.tags = [TagResponse()]
     }
 }
 
-class Tag: Codable {
+struct TagResponse: Codable {
     let tagName: String
     let photoURL: String
-
+    
     init() {
         self.tagName = ""
         self.photoURL = ""
-    }
-    
-    init(tagName: String, photoURL: String) {
-        self.tagName = tagName
-        self.photoURL = photoURL
     }
 }

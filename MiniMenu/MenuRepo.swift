@@ -9,8 +9,8 @@
 import Foundation
 
 protocol MenuRepo {
-    func getTags(of page: Int, completionHandler: @escaping (Tags) -> Void, failHandler: @escaping (String) -> Void)
-    func getItems(for tagName: String, completionHandler: @escaping (Items) -> Void, failHandler: @escaping (String) -> Void)
+    func getTags(of page: Int, completionHandler: @escaping (TagsList) -> Void, failHandler: @escaping (String) -> Void)
+    func getItems(for tagName: String, completionHandler: @escaping (ItemsList) -> Void, failHandler: @escaping (String) -> Void)
 }
 
 class MenuRepoImpl: MenuRepo {
@@ -21,16 +21,16 @@ class MenuRepoImpl: MenuRepo {
         self.networkManager = networkManager
     }
     
-    func getTags(of page: Int, completionHandler: @escaping (Tags) -> Void, failHandler: @escaping (String) -> Void) {
-        networkManager.call(endPoint: TagsEndPoint(page: page), for: Tags(), completionHandler: { (response) in
+    func getTags(of page: Int, completionHandler: @escaping (TagsList) -> Void, failHandler: @escaping (String) -> Void) {
+        networkManager.call(endPoint: TagsEndPoint(page: page), for: TagsResponse, completionHandler: { (response) in
             completionHandler(response.tags)
         }) { (error) in
             failHandler(error.message)
         }
     }
     
-    func getItems(for tagName: String, completionHandler: @escaping (Items) -> Void, failHandler: @escaping (String) -> Void) {
-        networkManager.call(endPoint: ItemsEndPoint(tagName: tagName), for: Items(), completionHandler: { (response) in
+    func getItems(for tagName: String, completionHandler: @escaping (ItemsList) -> Void, failHandler: @escaping (String) -> Void) {
+        networkManager.call(endPoint: ItemsEndPoint(tagName: tagName), for: ItemsResponse, completionHandler: { (response) in
             completionHandler(response.items)
         }) { (error) in
             failHandler(error.message)

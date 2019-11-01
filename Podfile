@@ -7,5 +7,6 @@ target 'MiniMenu' do
 
   # Pods for MiniMenu
   pod 'Alamofire'
+  pod 'RealmSwift'
 
 end

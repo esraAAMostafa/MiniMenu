@@ -8,19 +8,15 @@
 
 import Foundation
 
-class Items: Codable {
-    let items: [Item]
-
+struct ItemsResponse: Codable {
+    let items: [ItemResponse]
+    
     init() {
-        self.items = [Item()]
-    }
-
-    init(items: [Item]) {
-        self.items = items
+        self.items = [ItemResponse()]
     }
 }
 
-class Item: Codable {
+struct ItemResponse: Codable {
     let id: Int
     let name: String
     let photoURL: String
@@ -31,18 +27,11 @@ class Item: Codable {
         case photoURL = "photoUrl"
         case itemDescription = "description"
     }
-
+    
     init() {
         self.id = 0
         self.name = ""
         self.photoURL = ""
         self.itemDescription = ""
-    }
-    
-    init(id: Int, name: String, photoURL: String, itemDescription: String) {
-        self.id = id
-        self.name = name
-        self.photoURL = photoURL
-        self.itemDescription = itemDescription
     }
 }
