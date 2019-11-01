@@ -26,6 +26,10 @@
 		02E6ED7D236C245600B41D85 /* StoredItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6ED7C236C245600B41D85 /* StoredItems.swift */; };
 		02E6ED81236C24B400B41D85 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6ED80236C24B400B41D85 /* Items.swift */; };
 		02E6ED83236C24C300B41D85 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E6ED82236C24C300B41D85 /* Tags.swift */; };
+		02EC8338236C4EB600902017 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC8337236C4EB600902017 /* TagsView.swift */; };
+		02EC833A236C4F7400902017 /* TagsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC8339236C4F7400902017 /* TagsInteractor.swift */; };
+		02EC833C236C4F8300902017 /* TagsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC833B236C4F8300902017 /* TagsPresenter.swift */; };
+		02EC833F236C514D00902017 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EC833E236C514D00902017 /* TagCell.swift */; };
 		6236B0B2AF0D7A40883EF5DE /* Pods_MiniMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD8F529F8956777C52BEF6F /* Pods_MiniMenu.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,10 @@
 		02E6ED7C236C245600B41D85 /* StoredItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredItems.swift; sourceTree = "<group>"; };
 		02E6ED80236C24B400B41D85 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		02E6ED82236C24C300B41D85 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
+		02EC8337236C4EB600902017 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
+		02EC8339236C4F7400902017 /* TagsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInteractor.swift; sourceTree = "<group>"; };
+		02EC833B236C4F8300902017 /* TagsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPresenter.swift; sourceTree = "<group>"; };
+		02EC833E236C514D00902017 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		4246A42C50BA81D8B5B5695B /* Pods-MiniMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniMenu.release.xcconfig"; path = "Target Support Files/Pods-MiniMenu/Pods-MiniMenu.release.xcconfig"; sourceTree = "<group>"; };
 		82D96286937E1D5906DAAF47 /* Pods-MiniMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniMenu.debug.xcconfig"; path = "Target Support Files/Pods-MiniMenu/Pods-MiniMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		8DD8F529F8956777C52BEF6F /* Pods_MiniMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MiniMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +102,7 @@
 				0297FE71236C4543007C11B4 /* Services */,
 				020D852A236A0F1B00094864 /* ViewController.swift */,
 				020D852C236A0F1B00094864 /* Main.storyboard */,
+				02EC833D236C510300902017 /* TagsModule */,
 				020D852F236A0F1D00094864 /* Assets.xcassets */,
 				020D8531236A0F1D00094864 /* LaunchScreen.storyboard */,
 				020D8534236A0F1D00094864 /* Info.plist */,
@@ -159,6 +168,17 @@
 				02E6ED80236C24B400B41D85 /* Items.swift */,
 			);
 			path = BusinessModels;
+			sourceTree = "<group>";
+		};
+		02EC833D236C510300902017 /* TagsModule */ = {
+			isa = PBXGroup;
+			children = (
+				02EC8337236C4EB600902017 /* TagsView.swift */,
+				02EC8339236C4F7400902017 /* TagsInteractor.swift */,
+				02EC833B236C4F8300902017 /* TagsPresenter.swift */,
+				02EC833E236C514D00902017 /* TagCell.swift */,
+			);
+			path = TagsModule;
 			sourceTree = "<group>";
 		};
 		1876E4F5C636358D33FE4AC0 /* Pods */ = {
@@ -299,16 +319,20 @@
 				020D855B236A128900094864 /* TagsResponse.swift in Sources */,
 				02E6ED83236C24C300B41D85 /* Tags.swift in Sources */,
 				020D855D236A12E200094864 /* ItemsResponse.swift in Sources */,
+				02EC8338236C4EB600902017 /* TagsView.swift in Sources */,
 				029E390B236A3F18004DF7B2 /* APIError.swift in Sources */,
 				02184FE6236ACEEB000230BB /* DataBaseManager.swift in Sources */,
 				020D852B236A0F1B00094864 /* ViewController.swift in Sources */,
+				02EC833C236C4F8300902017 /* TagsPresenter.swift in Sources */,
 				020D8527236A0F1B00094864 /* AppDelegate.swift in Sources */,
+				02EC833F236C514D00902017 /* TagCell.swift in Sources */,
 				029E3907236A3ED1004DF7B2 /* TagsEndPoint.swift in Sources */,
 				029E3905236A3E97004DF7B2 /* EndPoint.swift in Sources */,
 				029E3909236A3EF1004DF7B2 /* ItemsEndPoint.swift in Sources */,
 				02E6ED7D236C245600B41D85 /* StoredItems.swift in Sources */,
 				029E390E236A4DB9004DF7B2 /* MenuRepo.swift in Sources */,
 				020D8529236A0F1B00094864 /* SceneDelegate.swift in Sources */,
+				02EC833A236C4F7400902017 /* TagsInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
