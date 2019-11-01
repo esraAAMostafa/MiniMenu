@@ -9,19 +9,19 @@
 import UIKit
 
 protocol TagsViewDelegate {
-    func updateCollectionView(with tags: TagsList)
+    func updateTagsView(with tags: TagsList)
     func showAlert(with message: String)
 }
 
-private let reuseIdentifier = "TagCell"
-
 class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
+
+    private let reuseIdentifier = "TagCell"
+
+    var delegate: HomeProtocol!
     var interactor: TagsInteractor!
-    var tags: TagsList = []
     
     var page = 0
-    var delegate: HomeProtocol!
+    var tags: TagsList = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +61,7 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 }
 
 extension TagsView: TagsViewDelegate {
-    func updateCollectionView(with tags: TagsList) {
+    func updateTagsView(with tags: TagsList) {
         self.tags.append(contentsOf: tags)
         collectionView.reloadData()
     }

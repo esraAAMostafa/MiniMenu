@@ -11,11 +11,11 @@ import Foundation
 typealias TagsList = [Tag]
 
 class Tag {
-    let tagName: String
+    let name: String
     let photoURL: String
 
-    init(tagName: String, photoURL: String) {
-        self.tagName = tagName
+    init(name: String, photoURL: String) {
+        self.name = name
         self.photoURL = photoURL
     }
 }

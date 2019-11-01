@@ -15,7 +15,7 @@ import RealmSwift
     func mapToTags() -> TagsList {
         var tags: TagsList = []
         self.tags.forEach {
-            tags.append(Tag(tagName: $0.tagName, photoURL: $0.photoURL)) }
+            tags.append(Tag(name: $0.tagName, photoURL: $0.photoURL)) }
         return tags
     }
 }

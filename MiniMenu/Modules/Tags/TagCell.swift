@@ -14,7 +14,7 @@ class TagCell: UICollectionViewCell {
     @IBOutlet weak var image: UIImageView!
     
     func config(tag: Tag) {
-        nameLabel.text = tag.tagName.substring(after: 4)
+        nameLabel.text = tag.name.substring(after: 4)
         image.setImage(imageUrl: tag.photoURL)
     }
 }

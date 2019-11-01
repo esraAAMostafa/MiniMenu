@@ -17,7 +17,7 @@ class TagsPresenter {
     }
     
     func getTagsSuccess(with tags: TagsList) {
-        tagsView.updateCollectionView(with: tags)
+        tagsView.updateTagsView(with: tags)
     }
     
     func getTagsFail(with error: String) {
