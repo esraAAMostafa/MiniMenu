@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MXParallaxHeader
 
 protocol ItemDetailsViewDelegate {
     func initItemDetails(_ item: Item)
@@ -14,11 +15,17 @@ protocol ItemDetailsViewDelegate {
 
 class ItemDetailsView: UIViewController, ItemDetailsViewDelegate {
         
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var photo: UIImageView!
     @IBOutlet weak var descriptionTV: UITextView!
 
     func initItemDetails(_ item: Item) {
+        scrollView.parallaxHeader.view = photo
+        scrollView.parallaxHeader.height = self.view.frame.height * 0.3
+        scrollView.parallaxHeader.mode = .fill
+        scrollView.parallaxHeader.minimumHeight = 0
+        
         itemNameLabel.text = item.name.substring(after: 4)
         self.view.hero.isEnabled = true
         photo.hero.id = "ItemPhotoId\(item.id)"

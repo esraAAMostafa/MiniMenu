@@ -47,10 +47,6 @@
                                         <constraint firstAttribute="trailing" secondItem="vdt-TO-gRf" secondAttribute="trailing" constant="10" id="ldH-bC-6rh"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabledForSubviews" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="nameLabel" destination="vdt-TO-gRf" id="gPq-u2-9DJ"/>
                                     <outlet property="photo" destination="Dgr-ds-aPA" id="pU8-Ta-9Ng"/>

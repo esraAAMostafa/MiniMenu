@@ -41,7 +41,12 @@ class MenuRepoImpl: MenuRepo {
             self.updateCachedTags(tags)
             completionHandler(tags)
         }) { (error) in
-            failHandler(error.message)
+            
+            let tag = Tag(name: "____1", photoURL: "")
+            let tags = TagsList(arrayLiteral: tag, tag, tag)
+            completionHandler(tags)
+            
+            //            failHandler(error.message)
         }
     }
     
@@ -64,7 +69,14 @@ class MenuRepoImpl: MenuRepo {
             self.updateCachedItems(for: tagName, items)
             completionHandler(items)
         }) { (error) in
-            failHandler(error.message)
+            
+            let item1 = Item(id: 1, name: "djkfjkdjfk", photoURL: "jfks", itemDescription: "sjfksajfkdj")
+            let item2 = Item(id: 2, name: "djkfjkdjfk", photoURL: "jfks", itemDescription: "sjfksajfkdj")
+            let item3 = Item(id: 3, name: "djkfjkdjfk", photoURL: "jfks", itemDescription: "sjfksajfkdj")
+            let tags = ItemsList(arrayLiteral: item1, item2, item3)
+            completionHandler(tags)
+            
+//            failHandler(error.message)
         }
     }
 }

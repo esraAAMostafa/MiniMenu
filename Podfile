@@ -10,5 +10,5 @@ target 'MiniMenu' do
   pod 'RealmSwift'
   pod 'Kingfisher'
   pod 'Hero'
-
+  pod "MXParallaxHeader"
 end
