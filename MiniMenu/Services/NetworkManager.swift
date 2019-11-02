@@ -41,8 +41,13 @@ class NetworkManagerImpl: NetworkManager {
                     }
                     failHandler(error.errors[0])
                 }
-            case .failure(let error):
-                failHandler(LocalError(message: error.localizedDescription))
+            case .failure(let errorResponse):
+                guard let error = try? JSONDecoder().decode(APIError.self, from: response.data!) else {
+                    print("fail to map error response")
+                    failHandler(LocalError(message: errorResponse.localizedDescription))
+                    return
+                }
+                failHandler(error.errors[0])
             }
         }
     }
