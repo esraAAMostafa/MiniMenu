@@ -31,9 +31,11 @@ class ItemsView: UITableViewController {
         refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
         return refreshControl
     }()
-
+    
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        interactor.getItems(with: tagName)
+        if tagName != nil && tagName != "" {
+            interactor.getItems(with: tagName)
+        }
     }
 
     override func viewDidLoad() {

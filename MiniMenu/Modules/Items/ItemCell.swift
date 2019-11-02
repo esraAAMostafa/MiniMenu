@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class ItemCell: UITableViewCell {
     
@@ -16,5 +17,6 @@ class ItemCell: UITableViewCell {
     func config(item: Item) {
         nameLabel.text = item.name.substring(after: 4)
         photo.setImage(imageUrl: item.photoURL)
+        photo.hero.id = "ItemPhotoId"
     }
 }

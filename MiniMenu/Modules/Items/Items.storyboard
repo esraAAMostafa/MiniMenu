@@ -30,8 +30,8 @@
                                                 <constraint firstAttribute="width" secondItem="Dgr-ds-aPA" secondAttribute="height" id="kdw-xz-fwD"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-TO-gRf">
-                                            <rect key="frame" x="182" y="72" width="222" height="46"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vdt-TO-gRf">
+                                            <rect key="frame" x="182" y="57" width="222" height="76"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="centerY" secondItem="42N-7b-d3h" secondAttribute="centerY" id="67F-yc-Stc"/>
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="height" secondItem="42N-7b-d3h" secondAttribute="height" multiplier="0.8" id="AsV-00-asw"/>
                                         <constraint firstItem="vdt-TO-gRf" firstAttribute="leading" secondItem="Dgr-ds-aPA" secondAttribute="trailing" constant="10" id="EZH-ZC-chO"/>
-                                        <constraint firstItem="vdt-TO-gRf" firstAttribute="height" secondItem="Dgr-ds-aPA" secondAttribute="height" multiplier="0.3" id="FFA-7H-YgJ"/>
+                                        <constraint firstItem="vdt-TO-gRf" firstAttribute="height" secondItem="Dgr-ds-aPA" secondAttribute="height" multiplier="0.5" id="FFA-7H-YgJ"/>
                                         <constraint firstItem="Dgr-ds-aPA" firstAttribute="leading" secondItem="42N-7b-d3h" secondAttribute="leading" constant="20" id="Y6x-Yc-LUz"/>
                                         <constraint firstAttribute="trailing" secondItem="vdt-TO-gRf" secondAttribute="trailing" constant="10" id="ldH-bC-6rh"/>
                                     </constraints>

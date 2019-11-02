@@ -9,5 +9,6 @@ target 'MiniMenu' do
   pod 'Alamofire'
   pod 'RealmSwift'
   pod 'Kingfisher'
+  pod 'Hero'
 
 end
