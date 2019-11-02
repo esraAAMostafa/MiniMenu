@@ -37,16 +37,12 @@ class MenuRepoImpl: MenuRepo {
     
     func getTags(of page: Int, completionHandler: @escaping (TagsList) -> Void, failHandler: @escaping (String) -> Void) {
         networkManager.call(endPoint: TagsEndPoint(page: page), for: TagsResponse.self, completionHandler: { (response) in
+
             let tags = response.mapToTags()
             self.updateCachedTags(tags)
             completionHandler(tags)
         }) { (error) in
-            
-            let tag = Tag(name: "____1", photoURL: "")
-            let tags = TagsList(arrayLiteral: tag, tag, tag)
-            completionHandler(tags)
-            
-            //            failHandler(error.message)
+                        failHandler(error.message)
         }
     }
     
@@ -65,18 +61,12 @@ class MenuRepoImpl: MenuRepo {
     func getItems(for tagName: String, completionHandler: @escaping (ItemsList) -> Void, failHandler: @escaping (String) -> Void) {
 
         networkManager.call(endPoint: ItemsEndPoint(tagName: tagName), for: ItemsResponse.self, completionHandler: { (response) in
+
             let items = response.mapToItems()
             self.updateCachedItems(for: tagName, items)
             completionHandler(items)
         }) { (error) in
-            
-            let item1 = Item(id: 1, name: "djkfjkdjfk", photoURL: "jfks", itemDescription: "sjfksajfkdj")
-            let item2 = Item(id: 2, name: "djkfjkdjfk", photoURL: "jfks", itemDescription: "sjfksajfkdj")
-            let item3 = Item(id: 3, name: "djkfjkdjfk", photoURL: "jfks", itemDescription: "sjfksajfkdj")
-            let tags = ItemsList(arrayLiteral: item1, item2, item3)
-            completionHandler(tags)
-            
-//            failHandler(error.message)
+            failHandler(error.message)
         }
     }
 }
