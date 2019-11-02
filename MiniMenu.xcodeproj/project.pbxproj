@@ -15,10 +15,10 @@
 		020D8533236A0F1D00094864 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 020D8531236A0F1D00094864 /* LaunchScreen.storyboard */; };
 		020D855B236A128900094864 /* TagsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855A236A128900094864 /* TagsResponse.swift */; };
 		020D855D236A12E200094864 /* ItemsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855C236A12E200094864 /* ItemsResponse.swift */; };
-		020D8560236A137200094864 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855F236A137200094864 /* NetworkManager.swift */; };
+		020D8560236A137200094864 /* AlamofireService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D855F236A137200094864 /* AlamofireService.swift */; };
 		02177846236CDBC30021CFC7 /* ItemDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02177845236CDBC30021CFC7 /* ItemDetails.storyboard */; };
 		02177848236CDBDF0021CFC7 /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02177847236CDBDF0021CFC7 /* ItemDetailsView.swift */; };
-		02184FE6236ACEEB000230BB /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02184FE5236ACEEB000230BB /* DataBaseManager.swift */; };
+		02184FE6236ACEEB000230BB /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02184FE5236ACEEB000230BB /* RealmService.swift */; };
 		02184FE8236ADD4D000230BB /* StoredTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02184FE7236ADD4D000230BB /* StoredTags.swift */; };
 		02563B6E236C782200CE1E84 /* UIImage + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02563B6D236C782200CE1E84 /* UIImage + extensions.swift */; };
 		02563B71236C7ADE00CE1E84 /* UIViewController + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02563B70236C7ADE00CE1E84 /* UIViewController + extensions.swift */; };
@@ -55,10 +55,10 @@
 		020D8534236A0F1D00094864 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		020D855A236A128900094864 /* TagsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsResponse.swift; sourceTree = "<group>"; };
 		020D855C236A12E200094864 /* ItemsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsResponse.swift; sourceTree = "<group>"; };
-		020D855F236A137200094864 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		020D855F236A137200094864 /* AlamofireService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireService.swift; sourceTree = "<group>"; };
 		02177845236CDBC30021CFC7 /* ItemDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ItemDetails.storyboard; sourceTree = "<group>"; };
 		02177847236CDBDF0021CFC7 /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
-		02184FE5236ACEEB000230BB /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		02184FE5236ACEEB000230BB /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		02184FE7236ADD4D000230BB /* StoredTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredTags.swift; sourceTree = "<group>"; };
 		02563B6D236C782200CE1E84 /* UIImage + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + extensions.swift"; sourceTree = "<group>"; };
 		02563B70236C7ADE00CE1E84 /* UIViewController + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + extensions.swift"; sourceTree = "<group>"; };
@@ -164,11 +164,11 @@
 		0297FE71236C4543007C11B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				020D855F236A137200094864 /* AlamofireService.swift */,
+				02184FE5236ACEEB000230BB /* RealmService.swift */,
+				029E390D236A4DB9004DF7B2 /* MenuRepo.swift */,
 				020D855E236A132200094864 /* Models */,
 				029E390C236A3F2D004DF7B2 /* EndPoints */,
-				020D855F236A137200094864 /* NetworkManager.swift */,
-				02184FE5236ACEEB000230BB /* DataBaseManager.swift */,
-				029E390D236A4DB9004DF7B2 /* MenuRepo.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -390,7 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02177848236CDBDF0021CFC7 /* ItemDetailsView.swift in Sources */,
-				020D8560236A137200094864 /* NetworkManager.swift in Sources */,
+				020D8560236A137200094864 /* AlamofireService.swift in Sources */,
 				02E6ED81236C24B400B41D85 /* Items.swift in Sources */,
 				02184FE8236ADD4D000230BB /* StoredTags.swift in Sources */,
 				020D855B236A128900094864 /* TagsResponse.swift in Sources */,
@@ -401,7 +401,7 @@
 				029E390B236A3F18004DF7B2 /* APIError.swift in Sources */,
 				02D587F7236CB54A00045289 /* ItemsInteractor.swift in Sources */,
 				02563B71236C7ADE00CE1E84 /* UIViewController + extensions.swift in Sources */,
-				02184FE6236ACEEB000230BB /* DataBaseManager.swift in Sources */,
+				02184FE6236ACEEB000230BB /* RealmService.swift in Sources */,
 				020D852B236A0F1B00094864 /* HomeView.swift in Sources */,
 				02EC833C236C4F8300902017 /* TagsPresenter.swift in Sources */,
 				020D8527236A0F1B00094864 /* AppDelegate.swift in Sources */,

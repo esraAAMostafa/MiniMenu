@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  AlamofireService.swift
 //  MiniMenu
 //
 //  Created by Esraa on 10/30/19.
@@ -9,22 +9,22 @@
 import Foundation
 import Alamofire
 
-protocol NetworkManager {
+protocol AlamofireService {
     func call<T: Codable>(endPoint: EndPoint, for output: T.Type, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void)
 }
 
-class NetworkManagerImpl: NetworkManager {
-
+class AlamofireServiceImpl: AlamofireService {
+    
     func call<T: Codable>(endPoint: EndPoint, for output:  T.Type, completionHandler: @escaping (T) -> Void, failHandler: @escaping (LocalError) -> Void) {
         
         guard let urlString = endPoint.url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlString) else {
             print("wrong request url")
             return
         }
-
+        
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endPoint.method.rawValue
-
+        
         Alamofire.request(urlRequest).validate().responseData { (response) in
             switch response.result {
             case .success(let data):

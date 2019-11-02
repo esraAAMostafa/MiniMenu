@@ -21,7 +21,7 @@ class ItemDetailsView: UIViewController, ItemDetailsViewDelegate {
     func initItemDetails(_ item: Item) {
         itemNameLabel.text = item.name.substring(after: 4)
         self.view.hero.isEnabled = true
-        photo.hero.id = "ItemPhotoId"
+        photo.hero.id = "ItemPhotoId\(item.id)"
         photo.hero.modifiers = [.fade, .duration(0.9)]
         photo.setImage(imageUrl: item.photoURL)
         descriptionTV.text = item.itemDescription

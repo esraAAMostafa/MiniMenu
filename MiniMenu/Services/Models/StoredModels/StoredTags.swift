@@ -9,22 +9,22 @@
 import Foundation
 import RealmSwift
 
-@objcMembers class StoredTags: Object {
-    var tags = RealmSwift.List<StoredTag>()
-
-    func mapToTags() -> TagsList {
-        var tags: TagsList = []
-        self.tags.forEach {
-            tags.append(Tag(name: $0.tagName, photoURL: $0.photoURL)) }
-        return tags
-    }
-}
-
 @objcMembers class StoredTag: Object {
+
     dynamic var tagName: String = ""
     dynamic var photoURL: String = ""
-
+    
     override class func primaryKey() -> String? {
         return "tagName"
+    }
+    
+    convenience init(tag: Tag) {
+        self.init()
+        self.tagName = tag.name
+        self.photoURL = tag.photoURL
+    }
+    
+    func toModel() -> Tag {
+        return Tag(name: tagName, photoURL: photoURL)
     }
 }
