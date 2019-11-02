@@ -17,6 +17,7 @@ class ItemCell: UITableViewCell {
     func config(item: Item) {
         nameLabel.text = item.name.substring(after: 4)
         photo.setImage(imageUrl: item.photoURL)
+        self.hero.isEnabled = true
         photo.hero.id = "ItemPhotoId"
     }
 }
