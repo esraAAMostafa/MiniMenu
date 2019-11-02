@@ -17,8 +17,9 @@ protocol ItemsViewDelegate {
 class ItemsView: UITableViewController {
 
     private let reuseIdentifier = "ItemCell"
+    private let cellHeight: CGFloat = 150
 
-    var delegate: HomeViewProtocol!
+    var homeDelegate: HomeViewProtocol!
     var interactor: ItemsInteractor!
     var itemDetailsDelegate: ItemDetailsViewDelegate!
 
@@ -57,7 +58,7 @@ class ItemsView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.frame.height / 4.5
+        return cellHeight
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -75,7 +76,7 @@ class ItemsView: UITableViewController {
 }
 
 extension ItemsView: ItemsViewDelegate {
-    
+
     func setSelectedTage(name: String) {
         self.tagName = name
         myRefreshControl.beginScrollRefreshing(in: self.tableView)
@@ -84,12 +85,13 @@ extension ItemsView: ItemsViewDelegate {
 
     func updateItemsView(with items: ItemsList) {
         self.items = items
+        homeDelegate.setItemsViewHeight(CGFloat(items.count) * cellHeight)
         tableView.reloadData()
         myRefreshControl.endRefreshing()
     }
     
     func showAlert(with message: String) {
-        delegate.showAlert(with: message)
+        homeDelegate.showAlert(with: message)
         myRefreshControl.endRefreshing()
     }
 }

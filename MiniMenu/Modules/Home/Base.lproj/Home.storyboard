@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W0H-lO-jMQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,45 +9,78 @@
     </dependencies>
     <scenes>
         <!--Home View-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="Pnx-mq-av9">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeView" customModule="MiniMenu" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="W0H-lO-jMQ" customClass="HomeView" customModule="MiniMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p8V-5q-hir">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wbX-rO-eUD">
-                                <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nG0-Xc-5nl">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wiw-lu-Fq2">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="874"/>
+                                        <subviews>
+                                            <containerView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="674" translatesAutoresizingMaskIntoConstraints="NO" id="e9E-lN-YEw">
+                                                <rect key="frame" x="0.0" y="200" width="414" height="674"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="674" id="JA1-8y-cbp"/>
+                                                </constraints>
+                                                <connections>
+                                                    <segue destination="pSr-Dt-2Md" kind="embed" identifier="ToItemsView" id="dOo-iS-m0u"/>
+                                                </connections>
+                                            </containerView>
+                                            <containerView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="200" translatesAutoresizingMaskIntoConstraints="NO" id="wbX-rO-eUD">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="u7a-Sr-dfj"/>
+                                                </constraints>
+                                                <connections>
+                                                    <segue destination="gBp-Mi-hTW" kind="embed" identifier="ToTagsView" id="QE9-HF-VzW"/>
+                                                </connections>
+                                            </containerView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="wbX-rO-eUD" firstAttribute="top" secondItem="Wiw-lu-Fq2" secondAttribute="top" id="8bA-QR-OLH"/>
+                                            <constraint firstAttribute="trailing" secondItem="wbX-rO-eUD" secondAttribute="trailing" id="Cvo-cO-pW2"/>
+                                            <constraint firstItem="e9E-lN-YEw" firstAttribute="top" secondItem="wbX-rO-eUD" secondAttribute="bottom" id="DYK-WP-y1I"/>
+                                            <constraint firstAttribute="bottom" secondItem="e9E-lN-YEw" secondAttribute="bottom" id="Q0w-Hi-Bxn"/>
+                                            <constraint firstItem="e9E-lN-YEw" firstAttribute="leading" secondItem="Wiw-lu-Fq2" secondAttribute="leading" id="YG3-gW-vt9"/>
+                                            <constraint firstAttribute="trailing" secondItem="e9E-lN-YEw" secondAttribute="trailing" id="kYv-6G-ddo"/>
+                                            <constraint firstItem="wbX-rO-eUD" firstAttribute="leading" secondItem="Wiw-lu-Fq2" secondAttribute="leading" id="nGi-xu-xpv"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="u7a-Sr-dfj"/>
+                                    <constraint firstItem="Wiw-lu-Fq2" firstAttribute="height" secondItem="nG0-Xc-5nl" secondAttribute="height" priority="250" id="H1P-G2-A7u"/>
+                                    <constraint firstAttribute="trailing" secondItem="Wiw-lu-Fq2" secondAttribute="trailing" id="VIZ-aF-I6y"/>
+                                    <constraint firstItem="Wiw-lu-Fq2" firstAttribute="width" secondItem="nG0-Xc-5nl" secondAttribute="width" id="dpJ-8s-Nxe"/>
+                                    <constraint firstItem="Wiw-lu-Fq2" firstAttribute="leading" secondItem="nG0-Xc-5nl" secondAttribute="leading" id="gV9-9v-SYe"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wiw-lu-Fq2" secondAttribute="bottom" id="nJl-3D-PvU"/>
+                                    <constraint firstItem="Wiw-lu-Fq2" firstAttribute="top" secondItem="nG0-Xc-5nl" secondAttribute="top" id="zci-cq-Dnm"/>
                                 </constraints>
-                                <connections>
-                                    <segue destination="gBp-Mi-hTW" kind="embed" identifier="ToTagsView" id="QE9-HF-VzW"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9E-lN-YEw">
-                                <rect key="frame" x="0.0" y="244" width="414" height="652"/>
-                                <connections>
-                                    <segue destination="pSr-Dt-2Md" kind="embed" identifier="ToItemsView" id="dOo-iS-m0u"/>
-                                </connections>
-                            </containerView>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Jec-9M-ddT"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="iHE-Zx-Oy3"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="wbX-rO-eUD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3f9-Os-hFc"/>
-                            <constraint firstItem="e9E-lN-YEw" firstAttribute="top" secondItem="wbX-rO-eUD" secondAttribute="bottom" id="NYe-T9-edo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wbX-rO-eUD" secondAttribute="trailing" id="QVu-QE-g7a"/>
-                            <constraint firstAttribute="bottom" secondItem="e9E-lN-YEw" secondAttribute="bottom" id="UUA-t9-f7N"/>
-                            <constraint firstItem="wbX-rO-eUD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UaT-hh-mx5"/>
-                            <constraint firstItem="e9E-lN-YEw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dwg-3J-0gP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e9E-lN-YEw" secondAttribute="trailing" id="uQo-kH-Kia"/>
+                            <constraint firstItem="S0K-ea-Adp" firstAttribute="trailing" secondItem="nG0-Xc-5nl" secondAttribute="trailing" id="1CQ-GO-D0e"/>
+                            <constraint firstItem="nG0-Xc-5nl" firstAttribute="leading" secondItem="S0K-ea-Adp" secondAttribute="leading" id="O1b-LG-Ift"/>
+                            <constraint firstAttribute="bottom" secondItem="nG0-Xc-5nl" secondAttribute="bottom" id="ZXu-QG-gWo"/>
+                            <constraint firstItem="nG0-Xc-5nl" firstAttribute="top" secondItem="S0K-ea-Adp" secondAttribute="top" id="mkT-pd-UaF"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="S0K-ea-Adp"/>
                     </view>
+                    <connections>
+                        <outlet property="itemsViewHeight" destination="JA1-8y-cbp" id="8Gc-y7-VfM"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fyp-5z-bLD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="86.383928571428569"/>
+            <point key="canvasLocation" x="45" y="82"/>
         </scene>
         <!--TagsView-->
         <scene sceneID="cwn-Mr-FtP">

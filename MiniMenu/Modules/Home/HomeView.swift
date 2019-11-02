@@ -10,18 +10,19 @@ import UIKit
 
 protocol HomeViewProtocol {
     func select(tag: Tag)
-//    func select(item: Item)
+    func setItemsViewHeight(_ height: CGFloat)
     func showAlert(with error: String)
 }
 
 class HomeView: UIViewController {
     
     var selectedTagName: String = ""
-    
     var itemsDelegate: ItemsViewDelegate!
 
+    @IBOutlet weak var itemsViewHeight: NSLayoutConstraint!
+
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,7 +33,7 @@ class HomeView: UIViewController {
             }
         case "ToItemsView":
             if let embedView = segue.destination as? ItemsView {
-                embedView.delegate = self
+                embedView.homeDelegate = self
                 itemsDelegate = embedView
             }
         default: break
@@ -41,6 +42,9 @@ class HomeView: UIViewController {
 }
 
 extension HomeView: HomeViewProtocol {
+    func setItemsViewHeight(_ height: CGFloat) {
+        itemsViewHeight.constant = height
+    }
 
     func select(tag: Tag) {
         itemsDelegate.setSelectedTage(name: tag.name)
