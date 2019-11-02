@@ -29,7 +29,7 @@ class HomeView: UIViewController {
         switch segue.identifier {
         case "ToTagsView":
             if let embedView = segue.destination as? TagsView {
-                embedView.delegate = self
+                embedView.homeDelegate = self
             }
         case "ToItemsView":
             if let embedView = segue.destination as? ItemsView {
@@ -42,6 +42,7 @@ class HomeView: UIViewController {
 }
 
 extension HomeView: HomeViewProtocol {
+
     func setItemsViewHeight(_ height: CGFloat) {
         itemsViewHeight.constant = height
     }

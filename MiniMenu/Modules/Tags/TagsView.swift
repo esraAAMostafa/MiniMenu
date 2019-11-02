@@ -17,14 +17,27 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     private let reuseIdentifier = "TagCell"
 
-    var delegate: HomeViewProtocol!
+    var homeDelegate: HomeViewProtocol!
     var interactor: TagsInteractor!
     
     var page = 0
     var tags: TagsList = []
+
+    lazy var myRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.handleRefresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
+    
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        getMoreTags()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.addSubview(self.myRefreshControl)
+        myRefreshControl.beginRefreshing()
+
         self.interactor = TagsInteractor(presnter: TagsPresenter(tagsView: self))
 
         getMoreTags()
@@ -59,7 +72,7 @@ class TagsView: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate.select(tag: tags[indexPath.row])
+        homeDelegate.select(tag: tags[indexPath.row])
     }
 }
 
@@ -67,9 +80,11 @@ extension TagsView: TagsViewDelegate {
     func updateTagsView(with tags: TagsList) {
         self.tags.append(contentsOf: tags)
         collectionView.reloadData()
+        myRefreshControl.endRefreshing()
     }
     
     func showAlert(with message: String) {
-        delegate.showAlert(with: message)
+        myRefreshControl.endRefreshing()
+        homeDelegate.showAlert(with: message)
     }
 }
