@@ -24,7 +24,6 @@ class ItemsView: UITableViewController {
     var itemDetailsDelegate: ItemDetailsViewDelegate!
 
     var items: ItemsList = []
-    
     var tagName: String!
 
     lazy var myRefreshControl: UIRefreshControl = {

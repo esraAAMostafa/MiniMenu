@@ -21,10 +21,6 @@ class HomeView: UIViewController {
 
     @IBOutlet weak var itemsViewHeight: NSLayoutConstraint!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "ToTagsView":
